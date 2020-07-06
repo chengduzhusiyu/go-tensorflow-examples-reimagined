@@ -77,3 +77,55 @@ func main() {
 			o1.Output(0),
 		},
 		nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	probabilities := output[0].Value().([][]float32)[0]
+	fmt.Println(probabilities)
+
+}
+
+func prepare_data(source [][]interface{}) (*tf.Tensor, *tf.Tensor, *tf.Tensor, *tf.Tensor, *tf.Tensor, *tf.Tensor, *tf.Tensor) {
+	lengthx := []int32{}
+	seqs_mid := [][]int{}
+	seqs_cat := [][]int{}
+
+	uidsRaw := []int32{}
+	midsRaw := []int32{}
+	catsRaw := []int32{}
+
+	for _, v := range source {
+		uidsRaw = append(uidsRaw, int32(v[0].(int)))
+		midsRaw = append(midsRaw, int32(v[1].(int)))
+		catsRaw = append(catsRaw, int32(v[2].(int)))
+		lengthx = append(lengthx, int32(len(v[4].([]int))))
+		seqs_mid = append(seqs_mid, v[3].([]int))
+		seqs_cat = append(seqs_cat, v[4].([]int))
+	}
+
+	uids, err := tf.NewTensor(uidsRaw)
+	if err != nil {
+		log.Fatal(err)
+
+	}
+	mids, _ := tf.NewTensor(midsRaw)
+	cats, _ := tf.NewTensor(catsRaw)
+
+	n_samples := len(seqs_mid)
+	var maxlen_x int32
+	for i, e := range lengthx {
+		if i == 0 || e >= maxlen_x {
+			maxlen_x = e
+		}
+	}
+
+	mid_his_raw := make([][]int32, n_samples)
+	for n := 0; n < n_samples; n++ {
+		tn := make([]int32, maxlen_x)
+		for m := 0; m < int(maxlen_x); m++ {
+			tn[m] = 0
+		}
+		mid_his_raw[n] = tn
+	}
+
+	cat_his_raw := make([][]int32, n_samples)
