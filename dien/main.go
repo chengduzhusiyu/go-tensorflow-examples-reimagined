@@ -129,3 +129,54 @@ func prepare_data(source [][]interface{}) (*tf.Tensor, *tf.Tensor, *tf.Tensor, *
 	}
 
 	cat_his_raw := make([][]int32, n_samples)
+	for n := 0; n < n_samples; n++ {
+		tn := make([]int32, maxlen_x)
+		for m := 0; m < int(maxlen_x); m++ {
+			tn[m] = 0
+		}
+		cat_his_raw[n] = tn
+	}
+
+	mid_mask_raw := make([][]float32, n_samples)
+	for n := 0; n < n_samples; n++ {
+		tn := make([]float32, maxlen_x)
+		for m := 0; m < int(maxlen_x); m++ {
+			tn[m] = 0
+		}
+		mid_mask_raw[n] = tn
+	}
+
+	for idx, _ := range seqs_mid {
+		for i := 0; i < int(lengthx[idx]); i++ {
+			mid_mask_raw[idx][i] = 1.0
+		}
+	}
+
+	for idx, sx := range seqs_mid {
+		for i := 0; i < int(lengthx[idx]); i++ {
+			mid_his_raw[idx][i] = int32(sx[i])
+		}
+	}
+
+	for idx, sy := range seqs_cat {
+		for i := 0; i < int(lengthx[idx]); i++ {
+			cat_his_raw[idx][i] = int32(sy[i])
+		}
+	}
+
+	mid_his, _ := tf.NewTensor(mid_his_raw)
+	mid_mask, _ := tf.NewTensor(mid_mask_raw)
+	cat_his, _ := tf.NewTensor(cat_his_raw)
+
+	length_x, _ := tf.NewTensor(lengthx)
+	return uids, mids, cats, mid_his, cat_his, mid_mask, length_x
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
+func Dataprocess(batch_size int) [][]interface{} {
+	mUid := make(map[string]int)
