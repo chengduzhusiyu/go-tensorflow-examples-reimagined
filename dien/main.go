@@ -180,3 +180,47 @@ func check(e error) {
 
 func Dataprocess(batch_size int) [][]interface{} {
 	mUid := make(map[string]int)
+	mMid := make(map[string]int)
+	mCat := make(map[string]int)
+	metaMap := make(map[string]string)
+	metaIdMap := make(map[int]int)
+
+	fileUid, err := os.Open("uid_voc")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer fileUid.Close()
+	scannerUid := bufio.NewScanner(fileUid)
+
+	for scannerUid.Scan() {
+		newText := strings.Split(scannerUid.Text(), ",")
+		mUid[newText[0]], err = strconv.Atoi(newText[1])
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	fileMid, err := os.Open("mid_voc")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer fileMid.Close()
+	scannerMid := bufio.NewScanner(fileMid)
+
+	for scannerMid.Scan() {
+		newText := strings.Split(scannerMid.Text(), ",")
+		mMid[newText[0]], err = strconv.Atoi(newText[1])
+	}
+
+	fileCat, err := os.Open("cat_voc")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer fileCat.Close()
+
+	scannerCat := bufio.NewScanner(fileCat)
+
+	for scannerCat.Scan() {
+		newText := strings.Split(scannerCat.Text(), ",")
+		mCat[newText[0]], err = strconv.Atoi(newText[1])
