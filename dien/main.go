@@ -224,3 +224,60 @@ func Dataprocess(batch_size int) [][]interface{} {
 	for scannerCat.Scan() {
 		newText := strings.Split(scannerCat.Text(), ",")
 		mCat[newText[0]], err = strconv.Atoi(newText[1])
+	}
+	var sourceDicts [3]map[string]int
+	sourceDicts[0] = mUid
+	sourceDicts[1] = mMid
+	sourceDicts[2] = mCat
+
+	fileMeta, err := os.Open("item-info")
+	if err != nil {
+		log.Fatal(err)
+
+	}
+	defer fileMeta.Close()
+
+	scannerMeta := bufio.NewScanner(fileMeta)
+
+	for scannerMeta.Scan() {
+		newText := strings.Trim(scannerMeta.Text(), " ")
+		newText1 := strings.Split(newText, "\t")
+		var ok bool
+		_, ok = metaMap[newText1[0]]
+		if ok == false {
+			metaMap[newText1[0]] = newText1[1]
+		}
+	}
+
+	for key := range metaMap {
+		val := metaMap[key]
+		v1, ok1 := sourceDicts[1][key]
+		var midIdx int
+		if ok1 {
+			midIdx = v1
+		} else {
+			midIdx = 0
+		}
+		v2, ok2 := sourceDicts[2][val]
+		var catIdx int
+		if ok2 {
+			catIdx = v2
+		} else {
+			catIdx = 0
+		}
+		metaIdMap[midIdx] = catIdx
+	}
+
+	fileReview, err := os.Open("reviews-info")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer fileReview.Close()
+
+	sourceBuffer := [][]string{}
+	file, err := os.Open("local_test_splitByUser")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
