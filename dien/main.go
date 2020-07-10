@@ -281,3 +281,65 @@ func Dataprocess(batch_size int) [][]interface{} {
 	}
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
+	cnt := 0
+	for scanner.Scan() {
+		if cnt == batch_size {
+			break
+		}
+		newText := strings.Trim(scanner.Text(), "\n")
+		newText1 := strings.Split(newText, "\t")
+		sourceBuffer = append(sourceBuffer, newText1)
+		cnt++
+	}
+
+	currPath, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	uid_batch, err := os.Create(filepath.Join(currPath, "input/uid_batch.txt"))
+	check(err)
+	defer uid_batch.Close()
+	mid_batch, err := os.Create(filepath.Join(currPath, "input/mid_batch.txt"))
+	check(err)
+	defer mid_batch.Close()
+	cat_batch, err := os.Create(filepath.Join(currPath, "input/cat_batch.txt"))
+	check(err)
+	defer cat_batch.Close()
+	mid_his_batch, err := os.Create(filepath.Join(currPath, "input/mid_his_batch.txt"))
+	check(err)
+	defer mid_his_batch.Close()
+	cat_his_batch, err := os.Create(filepath.Join(currPath, "input/cat_his_batch.txt"))
+	check(err)
+	defer cat_his_batch.Close()
+
+	//TODO: source Buffer sort by his_length
+	var uid int
+	var mid int
+	var cat int
+	source := make([][]interface{}, 0)
+
+	for cnt, ss := range sourceBuffer {
+		if cnt == batch_size {
+			break
+		}
+		subsource := make([]interface{}, 7)
+		if v, ok := sourceDicts[0][ss[1]]; ok {
+			uid = v
+		} else {
+			uid = 0
+		}
+		if v, ok := sourceDicts[1][ss[2]]; ok {
+			mid = v
+		} else {
+			mid = 0
+		}
+		if v, ok := sourceDicts[2][ss[3]]; ok {
+			cat = v
+		} else {
+			cat = 0
+		}
+		var tmp []int
+		textNew := strings.Split(ss[4], "")
+		for _, fea := range textNew {
+			if v, ok := sourceDicts[1][fea]; ok {
