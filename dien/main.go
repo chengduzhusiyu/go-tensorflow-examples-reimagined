@@ -343,3 +343,50 @@ func Dataprocess(batch_size int) [][]interface{} {
 		textNew := strings.Split(ss[4], "")
 		for _, fea := range textNew {
 			if v, ok := sourceDicts[1][fea]; ok {
+				tmp = append(tmp, v)
+			} else {
+				tmp = append(tmp, 0)
+			}
+		}
+		midList := tmp
+
+		var tmp1 []int
+		textNew = strings.Split(ss[5], "")
+		for _, fea := range textNew {
+			if v, ok := sourceDicts[2][fea]; ok {
+				tmp1 = append(tmp1, v)
+			} else {
+				tmp1 = append(tmp1, 0)
+			}
+		}
+		catList := tmp1
+		subsource[0] = uid
+		uid_batch.WriteString(strconv.Itoa(uid) + "\n")
+
+		subsource[1] = mid
+		mid_batch.WriteString(strconv.Itoa(mid) + "\n")
+
+		subsource[2] = cat
+		cat_batch.WriteString(strconv.Itoa(cat) + "\n")
+
+		subsource[3] = midList
+		subsource[4] = catList
+
+		source = append(source, subsource)
+	}
+
+	lengthx := []int{}
+
+	for _, v := range source {
+		lengthx = append(lengthx, len(v[4].([]int)))
+	}
+
+	var maxlen_x int
+	for i, e := range lengthx {
+		if i == 0 || e > maxlen_x {
+			maxlen_x = e
+		}
+	}
+
+	mask, err := os.Create(filepath.Join(currPath, "input/mask.txt"))
+	check(err)
