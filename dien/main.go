@@ -390,3 +390,44 @@ func Dataprocess(batch_size int) [][]interface{} {
 
 	mask, err := os.Create(filepath.Join(currPath, "input/mask.txt"))
 	check(err)
+	defer mask.Close()
+
+	seq_len, err := os.Create(filepath.Join(currPath, "input/seq_len.txt"))
+	check(err)
+	defer seq_len.Close()
+	for idx, ss := range source {
+		midList := ss[3].([]int)
+		catList := ss[4].([]int)
+
+		mid_mask_raw := make([]float32, maxlen_x)
+		for m := 0; m < int(maxlen_x); m++ {
+			mid_mask_raw[m] = 0
+		}
+
+		for i := 0; i < int(lengthx[idx]); i++ {
+			mid_mask_raw[i] = 1.0
+		}
+		mask.WriteString(floatSliceToString(mid_mask_raw) + "\n")
+
+		mid_his_raw := make([]int, maxlen_x)
+		for i := 0; i < int(lengthx[idx]); i++ {
+			mid_his_raw[i] = midList[i]
+		}
+		mid_his_batch.WriteString(intSliceToString(mid_his_raw) + "\n")
+
+		cat_his_raw := make([]int, maxlen_x)
+		for i := 0; i < int(lengthx[idx]); i++ {
+			cat_his_raw[i] = int(catList[i])
+		}
+
+		cat_his_batch.WriteString(intSliceToString(cat_his_raw) + "\n")
+
+		seq_len.WriteString(strconv.Itoa(lengthx[idx]) + "\n")
+	}
+
+	return source
+}
+
+func intSliceToString(in []int) (out string) {
+	for ii, v := range in {
+		if ii != 0 {
