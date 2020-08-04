@@ -431,3 +431,19 @@ func Dataprocess(batch_size int) [][]interface{} {
 func intSliceToString(in []int) (out string) {
 	for ii, v := range in {
 		if ii != 0 {
+			out += ","
+		}
+		out += strconv.Itoa(v)
+	}
+	return
+}
+
+func floatSliceToString(in []float32) (out string) {
+	for ii, v := range in {
+		if ii != 0 {
+			out += ","
+		}
+		out += fmt.Sprintf("%f", v)
+	}
+	return
+}
