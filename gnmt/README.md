@@ -9,4 +9,5 @@ Add the following code to inference.py
     loaded_model, global_step = model_helper.create_or_load_model(
         infer_model.model, out_dir, sess, "infer_name")
     # tf.saved_model.save(loaded_model, out_dir)
-    # ckpt_path = loaded_model.saver.sa
+    # ckpt_path = loaded_model.saver.save(
+    #     sess, os.path.join(out_dir, "tr
