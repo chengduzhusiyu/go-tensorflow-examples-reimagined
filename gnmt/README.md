@@ -14,4 +14,4 @@ Add the following code to inference.py
     #     global_step=global_step)
 
     # Export checkpoint to SavedModel
-    builder = tf
+    builder = tf.saved_model.builder.SavedModelBuilder(out_dir)
