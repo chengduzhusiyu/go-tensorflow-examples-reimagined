@@ -11,4 +11,7 @@ Add the following code to inference.py
     # tf.saved_model.save(loaded_model, out_dir)
     # ckpt_path = loaded_model.saver.save(
     #     sess, os.path.join(out_dir, "translate.ckpt"),
-    #     global_step=global_step
+    #     global_step=global_step)
+
+    # Export checkpoint to SavedModel
+    builder = tf
