@@ -16,4 +16,4 @@ Add the following code to inference.py
     # Export checkpoint to SavedModel
     builder = tf.saved_model.builder.SavedModelBuilder(out_dir)
     builder.add_meta_graph_and_variables(sess,
-                                         [tf.sav
+                                         [tf.saved_model.tag_constants.TRAINING, tf.saved_model.
