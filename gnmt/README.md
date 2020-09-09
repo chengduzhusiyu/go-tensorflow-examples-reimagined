@@ -18,4 +18,6 @@ Add the following code to inference.py
     builder.add_meta_graph_and_variables(sess,
                                          [tf.saved_model.tag_constants.TRAINING, tf.saved_model.tag_constants.SERVING],
                                          strip_default_attrs=True)
-  
+    builder.save()
+  exit
+```
