@@ -69,3 +69,5 @@ func main() {
 
 	// for ii := 0; ii < 1; ii++ {
 	// 	pp.Println(preds.Indexes[ii], labels[preds.Indexes[ii]], preds.Probabilities[ii])
+	// }
+}
