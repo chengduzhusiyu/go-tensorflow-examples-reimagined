@@ -4,4 +4,7 @@ import (
 	"flag"
 	"io/ioutil"
 	"log"
-	"p
+	"path/filepath"
+	"sort"
+
+	"github.com/disintegration/im
