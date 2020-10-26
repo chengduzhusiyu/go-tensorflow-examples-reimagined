@@ -15,4 +15,4 @@ import (
 
 func main() {
 	// Parse flags
-	modeldir :
+	modeldir := flag.String("dir", "", "Directory containing trai
