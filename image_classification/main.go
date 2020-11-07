@@ -15,4 +15,4 @@ import (
 
 func main() {
 	// Parse flags
-	modeldir := flag.String("dir", "", "Directory containing trai
+	modeldir := flag.String("dir", "", "Directory containing trained model files. Assumes model file is called frozen_in
