@@ -16,4 +16,5 @@ import (
 func main() {
 	// Parse flags
 	modeldir := flag.String("dir", "", "Directory containing trained model files. Assumes model file is called frozen_inference_graph.pb")
-	jpgfile := flag.String("jpg", "p
+	jpgfile := flag.String("jpg", "platypus.jpg", "Path of a JPG image to use for input")
+	labe
