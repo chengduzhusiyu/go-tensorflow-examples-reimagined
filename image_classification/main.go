@@ -24,3 +24,5 @@ func main() {
 		return
 	}
 
+	// Load the labels
+	labels := utils.LoadLabels
