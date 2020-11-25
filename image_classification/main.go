@@ -25,4 +25,6 @@ func main() {
 	}
 
 	// Load the labels
-	labels := utils.LoadLabels
+	labels := utils.LoadLabels(*labelfile)
+
+	// Load a frozen graph to use f
