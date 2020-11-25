@@ -19,4 +19,8 @@ func main() {
 	jpgfile := flag.String("jpg", "platypus.jpg", "Path of a JPG image to use for input")
 	labelfile := flag.String("labels", "synset1.txt", "Path to file of COCO labels, one per line")
 	flag.Parse()
-	if *modeldir 
+	if *modeldir == "" || *jpgfile == "" {
+		flag.Usage()
+		return
+	}
+
