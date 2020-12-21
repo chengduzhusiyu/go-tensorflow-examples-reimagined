@@ -27,4 +27,5 @@ func main() {
 	// Load the labels
 	labels := utils.LoadLabels(*labelfile)
 
-	// Load a frozen graph to use f
+	// Load a frozen graph to use for queries
+	modelpath := filepath.Join
