@@ -28,4 +28,5 @@ func main() {
 	labels := utils.LoadLabels(*labelfile)
 
 	// Load a frozen graph to use for queries
-	modelpath := filepath.Join
+	modelpath := filepath.Join(*modeldir, "mobilenet_v1_1.0_224_frozen.pb")
+	mo
