@@ -35,4 +35,5 @@ func main() {
 	}
 
 	// Construct an in-memory graph from the serialized form.
-	graph :
+	graph := tf.NewGraph()
+	if err := graph.Import(model, ""
