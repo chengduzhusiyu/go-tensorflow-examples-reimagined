@@ -36,4 +36,8 @@ func main() {
 
 	// Construct an in-memory graph from the serialized form.
 	graph := tf.NewGraph()
-	if err := graph.Import(model, ""
+	if err := graph.Import(model, ""); err != nil {
+		log.Fatal(err)
+	}
+
+	// Create a session 
