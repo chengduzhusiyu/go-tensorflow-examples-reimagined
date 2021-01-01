@@ -40,4 +40,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Create a session 
+	// Create a session for inference over graph.
+	session, err := tf.New
