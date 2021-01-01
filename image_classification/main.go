@@ -52,4 +52,6 @@ func main() {
 		log.Fatalf("failed to open image: %v", err)
 	}
 
-	h
+	height := 224
+	width := 224
+	resized := imaging.Resize(img, width, height, 
