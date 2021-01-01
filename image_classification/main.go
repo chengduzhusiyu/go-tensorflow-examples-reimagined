@@ -48,4 +48,8 @@ func main() {
 	defer session.Close()
 
 	img, err := imaging.Open(*jpgfile)
-	if err 
+	if err != nil {
+		log.Fatalf("failed to open image: %v", err)
+	}
+
+	h
