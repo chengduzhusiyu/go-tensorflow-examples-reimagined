@@ -45,3 +45,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer session.Close()
+
+	img, err := imaging.Open(*jpgfile)
+	if err 
