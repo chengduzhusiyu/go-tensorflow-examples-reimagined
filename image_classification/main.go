@@ -55,4 +55,5 @@ func main() {
 	height := 224
 	width := 224
 	resized := imaging.Resize(img, width, height, imaging.Linear)
-	imgFloats, err := utils.NormalizeImageH
+	imgFloats, err := utils.NormalizeImageHWC(resized, []float32{128, 128, 128}, 128)
+	if e
