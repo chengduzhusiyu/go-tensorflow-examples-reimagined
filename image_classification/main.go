@@ -56,4 +56,8 @@ func main() {
 	width := 224
 	resized := imaging.Resize(img, width, height, imaging.Linear)
 	imgFloats, err := utils.NormalizeImageHWC(resized, []float32{128, 128, 128}, 128)
-	if e
+	if err != nil {
+		panic(err)
+	}
+
+	batchSize := 
