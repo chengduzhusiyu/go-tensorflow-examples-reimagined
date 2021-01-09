@@ -60,4 +60,6 @@ func main() {
 		panic(err)
 	}
 
-	batchSize := 
+	batchSize := 1
+	input := make([][]float32, batchSize)
+	for ii := 0; ii < 
