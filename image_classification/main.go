@@ -66,4 +66,4 @@ func main() {
 		input[ii] = imgFloats
 	}
 
-	ten
+	tensor, err := utils.ReshapeTensorFloats(input, []i
