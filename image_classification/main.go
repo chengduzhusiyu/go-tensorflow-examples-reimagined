@@ -70,3 +70,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// Input op
+	inputOp := graph.Operation("input")
+
+	// Output ops
