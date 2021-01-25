@@ -75,3 +75,4 @@ func main() {
 	inputOp := graph.Operation("input")
 
 	// Output ops
+	o1 := graph.Operation("MobilenetV1/Predi
