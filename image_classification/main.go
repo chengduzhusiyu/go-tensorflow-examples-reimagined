@@ -87,4 +87,6 @@ func main() {
 		},
 		nil)
 	if err != nil {
-		log.Fatal(er
+		log.Fatal(err)
+	}
+	// Take the first in the batched output
