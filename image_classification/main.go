@@ -90,3 +90,4 @@ func main() {
 		log.Fatal(err)
 	}
 	// Take the first in the batched output
+	probabilities := output[0].Value().([][]float32
