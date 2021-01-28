@@ -75,4 +75,7 @@ func main() {
 	inputOp := graph.Operation("input")
 
 	// Output ops
-	o1 := graph.Operation("MobilenetV1/Predi
+	o1 := graph.Operation("MobilenetV1/Predictions/Reshape_1")
+
+	// Execute COCO Graph
+	output, err
