@@ -93,4 +93,7 @@ func main() {
 	probabilities := output[0].Value().([][]float32)[0]
 
 	idxs := make([]int, len(probabilities))
-	f
+	for i := range probabilities {
+		idxs[i] = i
+	}
+	preds := u
