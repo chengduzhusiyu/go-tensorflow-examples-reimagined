@@ -96,4 +96,4 @@ func main() {
 	for i := range probabilities {
 		idxs[i] = i
 	}
-	preds := u
+	preds := utils.Predictions{Probabilities: probabilities, Indexes: 
