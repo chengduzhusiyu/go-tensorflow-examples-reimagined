@@ -78,4 +78,6 @@ func main() {
 	o1 := graph.Operation("MobilenetV1/Predictions/Reshape_1")
 
 	// Execute COCO Graph
-	output, err
+	output, err := session.Run(
+		map[tf.Output]*tf.Tensor{
+			inp
