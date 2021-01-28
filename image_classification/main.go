@@ -83,4 +83,8 @@ func main() {
 			inputOp.Output(0): tensor,
 		},
 		[]tf.Output{
-			o1.Out
+			o1.Output(0),
+		},
+		nil)
+	if err != nil {
+		log.Fatal(er
