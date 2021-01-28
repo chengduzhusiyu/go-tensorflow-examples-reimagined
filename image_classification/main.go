@@ -90,4 +90,7 @@ func main() {
 		log.Fatal(err)
 	}
 	// Take the first in the batched output
-	probabilities := output[0].Value().([][]float32
+	probabilities := output[0].Value().([][]float32)[0]
+
+	idxs := make([]int, len(probabilities))
+	f
