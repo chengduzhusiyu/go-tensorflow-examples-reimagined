@@ -96,4 +96,7 @@ func main() {
 	for i := range probabilities {
 		idxs[i] = i
 	}
-	preds := utils.Predictions{Probabilities: probabilities, Indexes: 
+	preds := utils.Predictions{Probabilities: probabilities, Indexes: idxs}
+	sort.Sort(preds)
+
+	for ii := 0; ii < 1; i
