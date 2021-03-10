@@ -99,4 +99,5 @@ func main() {
 	preds := utils.Predictions{Probabilities: probabilities, Indexes: idxs}
 	sort.Sort(preds)
 
-	for ii := 0; ii < 1; i
+	for ii := 0; ii < 1; ii++ {
+		pp.Println(preds.Indexes[ii], labels[preds.Indexes
