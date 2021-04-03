@@ -1,2 +1,3 @@
 import os
-import te
+import tensorflow as tf
+import tensorlayer as tl
