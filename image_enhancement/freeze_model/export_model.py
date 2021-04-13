@@ -11,4 +11,7 @@ from model import SRGAN_g
 # tl.logging.set_verbosity(tl.logging.DEBUG)
 
 def preprocess(x):
-    x = x / 
+    x = x / (255. / 2.)
+    x = x - 1.
+    return x
+
