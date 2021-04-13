@@ -8,4 +8,7 @@ from model import SRGAN_g
 # Uncomment the following line to print the GPU and tf and tl log
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 # tf.logging.set_verbosity(tf.logging.DEBUG)
-# tl.logging.set_ve
+# tl.logging.set_verbosity(tl.logging.DEBUG)
+
+def preprocess(x):
+    x = x / 
