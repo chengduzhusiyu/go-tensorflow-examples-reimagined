@@ -15,3 +15,6 @@ def preprocess(x):
     x = x - 1.
     return x
 
+
+def export_model():
+    """Load the model in Tensor
