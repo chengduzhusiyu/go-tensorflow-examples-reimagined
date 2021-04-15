@@ -20,4 +20,11 @@ def export_model():
     """Load the model in TensorLayer's way and save
     the frozen graph
 
-    Args
+    Args:
+        None
+
+    Returns:
+        None
+    """
+
+   
