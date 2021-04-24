@@ -31,4 +31,5 @@ def export_model():
     checkpoint_dir = "checkpoint"
 
     ###========================== DEFINE MODEL ============================###
-    t_image = tf.placeholder('floa
+    t_image = tf.placeholder('float32', [None, None, None, 3],
+              
