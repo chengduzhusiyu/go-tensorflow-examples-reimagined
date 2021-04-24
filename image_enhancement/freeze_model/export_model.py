@@ -30,4 +30,5 @@ def export_model():
     # create folders to save result images
     checkpoint_dir = "checkpoint"
 
-    ###========================== DEFINE MODEL ============
+    ###========================== DEFINE MODEL ============================###
+    t_image = tf.placeholder('floa
