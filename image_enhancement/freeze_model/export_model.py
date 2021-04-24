@@ -29,3 +29,5 @@ def export_model():
 
     # create folders to save result images
     checkpoint_dir = "checkpoint"
+
+    ###========================== DEFINE MODEL ============
