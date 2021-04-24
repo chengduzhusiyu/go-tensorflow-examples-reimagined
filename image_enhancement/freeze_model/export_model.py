@@ -32,4 +32,5 @@ def export_model():
 
     ###========================== DEFINE MODEL ============================###
     t_image = tf.placeholder('float32', [None, None, None, 3],
-              
+                             name='input_image')
+    net_g = SR
