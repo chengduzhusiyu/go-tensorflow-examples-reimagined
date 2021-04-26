@@ -35,4 +35,4 @@ def export_model():
                              name='input_image')
     net_g = SRGAN_g(t_image, is_train=False, reuse=False)
 
-    ###=
+    ###========================== RESTORE G ==================
