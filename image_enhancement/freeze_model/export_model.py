@@ -37,4 +37,4 @@ def export_model():
 
     ###========================== RESTORE G =============================###
     sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True,
-                     
+                                            log_device_placement=False
