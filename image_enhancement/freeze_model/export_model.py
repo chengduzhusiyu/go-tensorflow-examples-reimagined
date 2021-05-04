@@ -36,4 +36,5 @@ def export_model():
     net_g = SRGAN_g(t_image, is_train=False, reuse=False)
 
     ###========================== RESTORE G =============================###
-    sess = tf.Session(config=tf.Config
+    sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True,
+                     
