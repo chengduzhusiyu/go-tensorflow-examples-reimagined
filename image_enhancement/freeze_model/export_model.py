@@ -41,4 +41,5 @@ def export_model():
     tl.layers.initialize_global_variables(sess)
 
     # Load model from .npz file
-    tl.file
+    tl.files.load_and_assign_npz(sess=sess,
+                      
