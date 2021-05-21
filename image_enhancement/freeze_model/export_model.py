@@ -42,4 +42,5 @@ def export_model():
 
     # Load model from .npz file
     tl.files.load_and_assign_npz(sess=sess,
-                      
+                                 name=checkpoint_dir + '/g_srgan.npz',
+   
