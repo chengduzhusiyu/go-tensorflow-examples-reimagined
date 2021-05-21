@@ -45,4 +45,6 @@ def export_model():
                                  name=checkpoint_dir + '/g_srgan.npz',
                                  network=net_g)
 
-    # export
+    # export to meta file
+    saver = tf.train.Saver()
+    sa
