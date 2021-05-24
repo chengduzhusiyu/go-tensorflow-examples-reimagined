@@ -52,4 +52,5 @@ def export_model():
                          './meta/srgan.pbtxt', as_text=True)
 
 
-if _
+if __name__ == "__main__":
+    export_model
