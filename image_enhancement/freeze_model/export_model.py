@@ -48,4 +48,5 @@ def export_model():
     # export to meta file
     saver = tf.train.Saver()
     saver.save(sess, './meta/srgan')
-    tf.train.write_graph(
+    tf.train.write_graph(sess.graph.as_graph_def(), '.',
+                         
