@@ -53,4 +53,5 @@ def export_model():
 
 
 if __name__ == "__main__":
-    export_model
+    export_model()
+    freeze_graph.freeze_graph('./meta/srgan.
