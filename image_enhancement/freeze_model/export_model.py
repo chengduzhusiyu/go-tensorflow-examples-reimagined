@@ -57,4 +57,4 @@ if __name__ == "__main__":
     freeze_graph.freeze_graph('./meta/srgan.pbtxt', "", False,
                               './meta/srgan', "SRGAN_g/out/Tanh",
                               "save/restore_all", "save/Const:0",
-     
+                              '../frozen_model.pb', True, ""
