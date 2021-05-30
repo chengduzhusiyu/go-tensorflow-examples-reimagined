@@ -4,4 +4,7 @@ import (
 	"bytes"
 	"flag"
 	"image"
-	"image/
+	"image/color"
+	"image/png"
+	_ "image/png"
+	"i
