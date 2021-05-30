@@ -58,3 +58,4 @@ if __name__ == "__main__":
                               './meta/srgan', "SRGAN_g/out/Tanh",
                               "save/restore_all", "save/Const:0",
                               '../frozen_model.pb', True, ""
+                              )
