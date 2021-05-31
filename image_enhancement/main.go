@@ -7,4 +7,9 @@ import (
 	"image/color"
 	"image/png"
 	_ "image/png"
-	"i
+	"io/ioutil"
+	"log"
+	"os"
+	"path/filepath"
+
+	"
