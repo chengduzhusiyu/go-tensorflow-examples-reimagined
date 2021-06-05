@@ -20,4 +20,5 @@ import (
 	"github.com/tensorflow/tensorflow/tensorflow/go/op"
 )
 
-func drawImagefromArray(input [][][]float32
+func drawImagefromArray(input [][][]float32, fileName string, width, height int) {
+	img := image.NewRGBA(
