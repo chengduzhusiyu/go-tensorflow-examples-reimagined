@@ -17,4 +17,5 @@ import (
 	"github.com/disintegration/imaging"
 	utils "github.com/rai-project/tensorflow-go-examples"
 	tf "github.com/tensorflow/tensorflow/tensorflow/go"
-	"git
+	"github.com/tensorflow/tensorflow/tensorflow/go/op"
+)
