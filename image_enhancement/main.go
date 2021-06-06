@@ -23,4 +23,6 @@ import (
 func drawImagefromArray(input [][][]float32, fileName string, width, height int) {
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
 
-	var R, G, B uin
+	var R, G, B uint8
+	for w := 0; w < width; w++ {
+		for h := 0; h < h
