@@ -26,4 +26,5 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 	var R, G, B uint8
 	for w := 0; w < width; w++ {
 		for h := 0; h < height; h++ {
-			R, G, B = uint8((input[h][w][0]+1)*127.5), uint8((input[h][w][1]+1)*127.5), uint8((input[h]
+			R, G, B = uint8((input[h][w][0]+1)*127.5), uint8((input[h][w][1]+1)*127.5), uint8((input[h][w][2]+1)*127.5)
+			img.Set(w, h, colo
