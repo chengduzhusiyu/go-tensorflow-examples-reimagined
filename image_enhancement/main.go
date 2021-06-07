@@ -33,4 +33,7 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 	pp.Println(img.At(0, 0))
 
 	// Save to output.png
-	out, _ := os.Create(fileNam
+	out, _ := os.Create(fileName)
+	defer out.Close()
+
+	err := png.Encode(out, img)
