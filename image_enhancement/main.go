@@ -42,3 +42,4 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 	}
 }
 
+func makeTensorFromImage(filename string) (*t
