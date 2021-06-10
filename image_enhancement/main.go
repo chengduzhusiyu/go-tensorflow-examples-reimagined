@@ -37,3 +37,8 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 	defer out.Close()
 
 	err := png.Encode(out, img)
+	if err != nil {
+		log.Println(err)
+	}
+}
+
