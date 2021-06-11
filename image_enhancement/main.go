@@ -42,4 +42,5 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 	}
 }
 
-func makeTensorFromImage(filename string) (*t
+func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
+	b, err := ioutil.ReadFile
