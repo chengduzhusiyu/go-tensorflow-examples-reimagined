@@ -43,4 +43,9 @@ func drawImagefromArray(input [][][]float32, fileName string, width, height int)
 }
 
 func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
-	b, err := ioutil.ReadFile
+	b, err := ioutil.ReadFile(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	r := by
