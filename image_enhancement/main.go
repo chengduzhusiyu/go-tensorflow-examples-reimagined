@@ -51,4 +51,8 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 	r := bytes.NewReader(b)
 	img, _, err := image.Decode(r)
 
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// DecodeJpeg uses
