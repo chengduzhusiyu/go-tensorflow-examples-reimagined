@@ -55,4 +55,5 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		log.Fatal(err)
 	}
 
-	// DecodeJpeg uses
+	// DecodeJpeg uses a scalar String-valued tensor as input.
+	ten
