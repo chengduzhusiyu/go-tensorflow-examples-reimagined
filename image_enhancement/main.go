@@ -48,4 +48,7 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		log.Fatal(err)
 	}
 
-	r := by
+	r := bytes.NewReader(b)
+	img, _, err := image.Decode(r)
+
+	
