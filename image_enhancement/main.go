@@ -61,4 +61,5 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		log.Fatal(err)
 	}
 
-	// Creat
+	// Creates a tensorflow graph to decode the jpeg image
+	gr
