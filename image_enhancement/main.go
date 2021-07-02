@@ -67,3 +67,4 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		log.Fatal(err)
 	}
 
+	// Execute that graph to decode this one ima
