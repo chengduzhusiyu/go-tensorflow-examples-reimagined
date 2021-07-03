@@ -67,4 +67,5 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		log.Fatal(err)
 	}
 
-	// Execute that graph to decode this one ima
+	// Execute that graph to decode this one image
+	session, err := tf.NewSession(graph, nil)
