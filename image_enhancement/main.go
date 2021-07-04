@@ -69,3 +69,7 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 
 	// Execute that graph to decode this one image
 	session, err := tf.NewSession(graph, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer se
