@@ -72,4 +72,6 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer se
+	defer session.Close()
+
+	normalized, err := session.Run
