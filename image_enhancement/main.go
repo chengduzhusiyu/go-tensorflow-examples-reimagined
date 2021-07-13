@@ -79,4 +79,10 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		[]tf.Output{output},
 		nil)
 	if err != nil {
-		log.Fatal
+		log.Fatal(err)
+	}
+
+	return normalized[0], img, nil
+}
+
+func c
