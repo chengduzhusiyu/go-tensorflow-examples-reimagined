@@ -74,4 +74,6 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 	}
 	defer session.Close()
 
-	normalized, err := session.Run
+	normalized, err := session.Run(
+		map[tf.Output]*tf.Tensor{input: tensor},
+		[]tf.Out
