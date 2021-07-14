@@ -91,4 +91,5 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 		Mean  = float32(1)
 	)
 
-	s := op.NewSc
+	s := op.NewScope()
+	input = op.Placeholder(s, tf.St
