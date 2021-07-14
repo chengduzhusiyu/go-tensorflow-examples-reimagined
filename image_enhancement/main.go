@@ -85,4 +85,6 @@ func makeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 	return normalized[0], img, nil
 }
 
-func constructGraphToNormalizeImage() (graph *tf.Graph,
+func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output, err error) {
+	const (
+		Scale = float3
