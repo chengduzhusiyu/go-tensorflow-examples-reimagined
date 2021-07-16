@@ -92,4 +92,8 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 	)
 
 	s := op.NewScope()
-	input = op.Placeholder(s, tf.St
+	input = op.Placeholder(s, tf.String)
+	output =
+		op.Sub(s,
+			op.Div(s,
+				op.Expand
