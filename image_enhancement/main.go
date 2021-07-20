@@ -98,4 +98,5 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 			op.Div(s,
 				op.ExpandDims(s,
 					op.Cast(s,
-						op.DecodePng(s, input
+						op.DecodePng(s, input, op.DecodePngChannels(3)),
+						tf.Float),
