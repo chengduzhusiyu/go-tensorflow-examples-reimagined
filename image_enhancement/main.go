@@ -105,4 +105,8 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 			op.Const(s.SubScope("mean"), Mean))
 
 	graph, err = s.Finalize()
-	return gra
+	return graph, input, output, err
+}
+
+func main() {
+	// Parse f
