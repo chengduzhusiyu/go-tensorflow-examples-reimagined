@@ -101,4 +101,5 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 						op.DecodePng(s, input, op.DecodePngChannels(3)),
 						tf.Float),
 					op.Const(s.SubScope("make_batch"), int32(0))),
-				op.Const(s.SubScope("scale"), Scale
+				op.Const(s.SubScope("scale"), Scale)),
+			op.Const(s.SubScope("mean"), Me
