@@ -109,4 +109,5 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 }
 
 func main() {
-	// Parse f
+	// Parse flags
+	modelDir := flag.String("dir", ".", "Directo
