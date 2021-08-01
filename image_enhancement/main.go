@@ -111,4 +111,5 @@ func constructGraphToNormalizeImage() (graph *tf.Graph, input, output tf.Output,
 func main() {
 	// Parse flags
 	modelDir := flag.String("dir", ".", "Directory containing trained model files")
-	pngFile := flag.String("png", "penguin.png", "Path of a PNG
+	pngFile := flag.String("png", "penguin.png", "Path of a PNG image to use for input")
+	outPng :
