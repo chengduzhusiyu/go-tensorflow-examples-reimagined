@@ -114,4 +114,9 @@ func main() {
 	pngFile := flag.String("png", "penguin.png", "Path of a PNG image to use for input")
 	outPng := flag.String("out", "output.png", "Path of output PNG for displaying labels. Default is output.png")
 	flag.Parse()
+	if *modelDir == "" {
+		flag.Usage()
+		return
+	}
+
 	
