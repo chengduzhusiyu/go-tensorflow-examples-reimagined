@@ -119,4 +119,5 @@ func main() {
 		return
 	}
 
-	
+	// Load a frozen graph to use for queries
+	mo
