@@ -120,4 +120,4 @@ func main() {
 	}
 
 	// Load a frozen graph to use for queries
-	mo
+	modelPath := filepath.Join(*modelDir, "frozen_mod
