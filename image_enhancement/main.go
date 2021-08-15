@@ -126,4 +126,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Construct an in-mem
+	// Construct an in-memory graph from the serialized form.
+	graph
