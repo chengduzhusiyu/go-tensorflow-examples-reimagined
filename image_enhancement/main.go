@@ -120,4 +120,6 @@ func main() {
 	}
 
 	// Load a frozen graph to use for queries
-	modelPath := filepath.Join(*modelDir, "frozen_mod
+	modelPath := filepath.Join(*modelDir, "frozen_model.pb")
+	model, err := ioutil.ReadFile(modelPath)
+	if err != ni
