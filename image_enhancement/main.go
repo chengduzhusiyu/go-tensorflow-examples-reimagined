@@ -133,4 +133,8 @@ func main() {
 	}
 
 	// Create a session for inference over graph.
-	session, err := tf.NewSession(graph, ni
+	session, err := tf.NewSession(graph, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer session.Cl
