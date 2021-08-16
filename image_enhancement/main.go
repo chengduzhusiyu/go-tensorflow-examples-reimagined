@@ -132,4 +132,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Create a session for inference ov
+	// Create a session for inference over graph.
+	session, err := tf.NewSession(graph, ni
