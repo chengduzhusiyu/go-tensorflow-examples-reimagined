@@ -139,4 +139,6 @@ func main() {
 	}
 	defer session.Close()
 
-	// Decode the PNG image to tensor as inpu
+	// Decode the PNG image to tensor as input
+	img, err := imaging.Open(*pngFile)
+	if err != ni
