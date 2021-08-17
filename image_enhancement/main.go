@@ -141,4 +141,5 @@ func main() {
 
 	// Decode the PNG image to tensor as input
 	img, err := imaging.Open(*pngFile)
-	if err != ni
+	if err != nil {
+		log.Fatalf("failed to open image: %
