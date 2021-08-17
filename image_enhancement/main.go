@@ -137,4 +137,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer session.Cl
+	defer session.Close()
+
+	// Decode the PNG image to tensor as inpu
