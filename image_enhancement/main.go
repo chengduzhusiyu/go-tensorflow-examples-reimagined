@@ -142,4 +142,8 @@ func main() {
 	// Decode the PNG image to tensor as input
 	img, err := imaging.Open(*pngFile)
 	if err != nil {
-		log.Fatalf("failed to open image: %
+		log.Fatalf("failed to open image: %v", err)
+	}
+
+	width := img.Bounds().Max.X
+	heig
