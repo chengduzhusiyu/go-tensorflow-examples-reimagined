@@ -148,4 +148,5 @@ func main() {
 	width := img.Bounds().Max.X
 	height := img.Bounds().Max.Y
 
-	imgFloats, err := utils.NormalizeImageHWC(imaging.Clone(img), []f
+	imgFloats, err := utils.NormalizeImageHWC(imaging.Clone(img), []float32{127.5, 127.5, 127.5}, 127.5)
+	if err 
