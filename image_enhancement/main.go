@@ -146,4 +146,6 @@ func main() {
 	}
 
 	width := img.Bounds().Max.X
-	heig
+	height := img.Bounds().Max.Y
+
+	imgFloats, err := utils.Normal
