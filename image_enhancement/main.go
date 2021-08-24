@@ -149,4 +149,9 @@ func main() {
 	height := img.Bounds().Max.Y
 
 	imgFloats, err := utils.NormalizeImageHWC(imaging.Clone(img), []float32{127.5, 127.5, 127.5}, 127.5)
-	if err 
+	if err != nil {
+		panic(err)
+	}
+
+	batchSize := 1
+	input := 
