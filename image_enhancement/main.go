@@ -154,4 +154,5 @@ func main() {
 	}
 
 	batchSize := 1
-	input := 
+	input := make([][]float32, batchSize)
+	for ii :=
