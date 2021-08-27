@@ -156,4 +156,7 @@ func main() {
 	batchSize := 1
 	input := make([][]float32, batchSize)
 	for ii := 0; ii < batchSize; ii++ {
-		input[ii]
+		input[ii] = imgFloats
+	}
+
+	tensor, err := utils.ReshapeTensorFloa
