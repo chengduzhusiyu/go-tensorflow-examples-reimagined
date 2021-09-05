@@ -166,4 +166,6 @@ func main() {
 
 	// Define input and output operations given the both nodes' names
 	inputOp := graph.Operation("input_image")
-	outputO
+	outputOp := graph.Operation("SRGAN_g/out/Tanh")
+
+	outp
