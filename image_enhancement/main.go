@@ -159,4 +159,6 @@ func main() {
 		input[ii] = imgFloats
 	}
 
-	tensor, err := utils.ReshapeTensorFloats(input, []int64{int64(batchSize), int64(height), i
+	tensor, err := utils.ReshapeTensorFloats(input, []int64{int64(batchSize), int64(height), int64(width), 3})
+	if err != nil {
+		log.Fatal(er
