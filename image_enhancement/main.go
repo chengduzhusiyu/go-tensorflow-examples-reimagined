@@ -164,4 +164,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Define input and output operations given the both no
+	// Define input and output operations given the both nodes' names
+	inputOp := graph.Operation("input_image")
+	outputO
