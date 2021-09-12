@@ -168,4 +168,5 @@ func main() {
 	inputOp := graph.Operation("input_image")
 	outputOp := graph.Operation("SRGAN_g/out/Tanh")
 
-	outp
+	output, err := session.Run(
+		map[tf.Output]
