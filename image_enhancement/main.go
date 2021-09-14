@@ -172,4 +172,7 @@ func main() {
 		map[tf.Output]*tf.Tensor{
 			inputOp.Output(0): tensor,
 		},
-		[]
+		[]tf.Output{
+			outputOp.Output(0),
+		},
+		ni
