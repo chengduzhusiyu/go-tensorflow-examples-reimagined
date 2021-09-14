@@ -169,4 +169,7 @@ func main() {
 	outputOp := graph.Operation("SRGAN_g/out/Tanh")
 
 	output, err := session.Run(
-		map[tf.Output]
+		map[tf.Output]*tf.Tensor{
+			inputOp.Output(0): tensor,
+		},
+		[]
