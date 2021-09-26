@@ -175,4 +175,9 @@ func main() {
 		[]tf.Output{
 			outputOp.Output(0),
 		},
-		ni
+		nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	hrImage := output[0].Va
