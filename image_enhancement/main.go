@@ -181,4 +181,6 @@ func main() {
 	}
 
 	hrImage := output[0].Value().([][][][]float32)[0]
-	width, height = len(hrImag
+	width, height = len(hrImage[0]), len(hrImage)
+	pp.Println(width, height)
+	drawImagefr
