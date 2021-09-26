@@ -180,4 +180,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	hrImage := output[0].Va
+	hrImage := output[0].Value().([][][][]float32)[0]
+	width, height = len(hrImag
