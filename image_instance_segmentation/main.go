@@ -2,4 +2,9 @@ package main
 
 import (
 	"flag"
-	"im
+	"image"
+	"image/draw"
+	"image/jpeg"
+	"io/ioutil"
+	"log"
+	"os"
