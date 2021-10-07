@@ -10,4 +10,5 @@ import (
 	"os"
 	"path/filepath"
 
-	utils "github.com/rai-project
+	utils "github.com/rai-project/tensorflow-go-examples"
+	tf "github.com/tensorflow/tenso
