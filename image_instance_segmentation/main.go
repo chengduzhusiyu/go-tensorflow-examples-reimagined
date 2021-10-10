@@ -12,4 +12,9 @@ import (
 
 	utils "github.com/rai-project/tensorflow-go-examples"
 	tf "github.com/tensorflow/tensorflow/tensorflow/go"
-	"golang.org/x/image/col
+	"golang.org/x/image/colornames"
+)
+
+func main() {
+	// Parse flags
+	modeldi
