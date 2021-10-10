@@ -11,4 +11,5 @@ import (
 	"path/filepath"
 
 	utils "github.com/rai-project/tensorflow-go-examples"
-	tf "github.com/tensorflow/tenso
+	tf "github.com/tensorflow/tensorflow/tensorflow/go"
+	"golang.org/x/image/col
