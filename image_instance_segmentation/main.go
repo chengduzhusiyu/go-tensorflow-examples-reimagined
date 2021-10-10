@@ -17,4 +17,4 @@ import (
 
 func main() {
 	// Parse flags
-	modeldi
+	modeldir := flag.String("dir", "", "Directory containing tra
