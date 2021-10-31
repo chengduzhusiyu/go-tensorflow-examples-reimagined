@@ -28,4 +28,6 @@ func main() {
 	}
 
 	// Load the labels
-	labels := utils.LoadLa
+	labels := utils.LoadLabels(*labelfile)
+
+	// Load a frozen graph to use for queri
