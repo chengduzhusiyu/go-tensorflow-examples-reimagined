@@ -24,3 +24,8 @@ func main() {
 	flag.Parse()
 	if *modeldir == "" || *jpgfile == "" {
 		flag.Usage()
+		return
+	}
+
+	// Load the labels
+	labels := utils.LoadLa
