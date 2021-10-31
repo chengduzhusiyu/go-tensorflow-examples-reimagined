@@ -22,4 +22,5 @@ func main() {
 	outjpg := flag.String("out", "output.jpg", "Path of output JPG for displaying labels. Default is output.jpg")
 	labelfile := flag.String("labels", "coco_labels.txt", "Path to file of COCO labels, one per line")
 	flag.Parse()
-	if *mode
+	if *modeldir == "" || *jpgfile == "" {
+		flag.Usage()
