@@ -31,4 +31,5 @@ func main() {
 	labels := utils.LoadLabels(*labelfile)
 
 	// Load a frozen graph to use for queries
-	modelpath := filepath.Join(*modeldir, "frozen_inference_g
+	modelpath := filepath.Join(*modeldir, "frozen_inference_graph.pb")
+	model, err := ioutil.ReadFile(modelpath)
