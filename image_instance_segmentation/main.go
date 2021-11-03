@@ -30,4 +30,5 @@ func main() {
 	// Load the labels
 	labels := utils.LoadLabels(*labelfile)
 
-	// Load a frozen graph to use for queri
+	// Load a frozen graph to use for queries
+	modelpath := filepath.Join(*modeldir, "frozen_inference_g
