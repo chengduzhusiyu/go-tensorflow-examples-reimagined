@@ -37,4 +37,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Construct
+	// Construct an in-memory graph from the serialized form.
+	gra
