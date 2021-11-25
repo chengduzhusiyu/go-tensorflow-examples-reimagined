@@ -50,4 +50,5 @@ func main() {
 	}
 	defer session.Close()
 
-	// DecodeJp
+	// DecodeJpeg uses a scalar String-valued tensor as input.
+	tensor, i, err
