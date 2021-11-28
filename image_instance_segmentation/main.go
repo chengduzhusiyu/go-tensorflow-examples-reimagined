@@ -51,4 +51,5 @@ func main() {
 	defer session.Close()
 
 	// DecodeJpeg uses a scalar String-valued tensor as input.
-	tensor, i, err
+	tensor, i, err := utils.MakeTensorFromImage(*jpgfile)
+	if err != n
