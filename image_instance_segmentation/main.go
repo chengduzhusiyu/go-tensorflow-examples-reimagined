@@ -57,3 +57,4 @@ func main() {
 	}
 
 	// Print the image tensor
+	// utils.ToPng("/tmp/object_detection.png", utils.TensorD
