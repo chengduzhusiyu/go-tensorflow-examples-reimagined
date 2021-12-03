@@ -57,4 +57,6 @@ func main() {
 	}
 
 	// Print the image tensor
-	// utils.ToPng("/tmp/object_detection.png", utils.TensorD
+	// utils.ToPng("/tmp/object_detection.png", utils.TensorData(utils.TensorPtrC(tensor)), i.Bounds())
+
+	// Transform th
