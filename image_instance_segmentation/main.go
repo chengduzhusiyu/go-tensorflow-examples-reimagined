@@ -59,4 +59,5 @@ func main() {
 	// Print the image tensor
 	// utils.ToPng("/tmp/object_detection.png", utils.TensorData(utils.TensorPtrC(tensor)), i.Bounds())
 
-	// Transform th
+	// Transform the decoded YCbCr JPG image into RGBA
+	b := i.Bounds()
