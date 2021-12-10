@@ -62,4 +62,7 @@ func main() {
 	// Transform the decoded YCbCr JPG image into RGBA
 	b := i.Bounds()
 	img := image.NewRGBA(b)
-	draw.Draw(img, b, i, b.Min, draw.
+	draw.Draw(img, b, i, b.Min, draw.Src)
+
+	// Input op
+	inputop := graph.Operation("image_t
