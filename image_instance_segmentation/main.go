@@ -68,4 +68,5 @@ func main() {
 	inputop := graph.Operation("image_tensor")
 
 	// Output ops
-	o1 := graph.Oper
+	o1 := graph.Operation("detection_boxes")
+	o2 := graph.Operatio
