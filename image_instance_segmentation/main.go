@@ -69,4 +69,5 @@ func main() {
 
 	// Output ops
 	o1 := graph.Operation("detection_boxes")
-	o2 := graph.Operatio
+	o2 := graph.Operation("detection_scores")
+	o3 := graph.Operation("det
