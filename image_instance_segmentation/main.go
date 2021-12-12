@@ -65,4 +65,7 @@ func main() {
 	draw.Draw(img, b, i, b.Min, draw.Src)
 
 	// Input op
-	inputop := graph.Operation("image_t
+	inputop := graph.Operation("image_tensor")
+
+	// Output ops
+	o1 := graph.Oper
