@@ -75,4 +75,5 @@ func main() {
 
 	// Execute COCO Graph
 	output, err := session.Run(
-	
+		map[tf.Output]*tf.Tensor{
+			inputop.Output(
