@@ -71,4 +71,8 @@ func main() {
 	o1 := graph.Operation("detection_boxes")
 	o2 := graph.Operation("detection_scores")
 	o3 := graph.Operation("detection_classes")
-	o4 := graph.Operation("detection_masks"
+	o4 := graph.Operation("detection_masks")
+
+	// Execute COCO Graph
+	output, err := session.Run(
+	
