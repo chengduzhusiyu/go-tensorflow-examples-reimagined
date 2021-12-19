@@ -89,4 +89,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Take the f
+	// Take the first in the batched output
+	boxes := out
