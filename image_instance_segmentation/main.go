@@ -80,4 +80,7 @@ func main() {
 		},
 		[]tf.Output{
 			o1.Output(0),
-			o2
+			o2.Output(0),
+			o3.Output(0),
+			o4.Output(0),
+		},
