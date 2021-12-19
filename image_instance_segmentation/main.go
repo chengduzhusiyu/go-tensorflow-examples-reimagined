@@ -84,3 +84,9 @@ func main() {
 			o3.Output(0),
 			o4.Output(0),
 		},
+		nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Take the f
