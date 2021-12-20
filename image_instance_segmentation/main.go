@@ -90,4 +90,5 @@ func main() {
 	}
 
 	// Take the first in the batched output
-	boxes := out
+	boxes := output[0].Value().([][][]float32)[0]
+	probabilities := out
