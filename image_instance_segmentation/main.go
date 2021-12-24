@@ -93,4 +93,6 @@ func main() {
 	boxes := output[0].Value().([][][]float32)[0]
 	probabilities := output[1].Value().([][]float32)[0]
 	classes := output[2].Value().([][]float32)[0]
-	masks := output[3].Val
+	masks := output[3].Value().([][][][]float32)[0]
+
+	// Draw a box around the 
