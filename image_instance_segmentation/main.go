@@ -96,4 +96,5 @@ func main() {
 	masks := output[3].Value().([][][][]float32)[0]
 
 	// Draw a box around the objects with a probability higher than the threshold
-	
+	curObj := 0
+	for probabilities[curObj] > 0.9 {
