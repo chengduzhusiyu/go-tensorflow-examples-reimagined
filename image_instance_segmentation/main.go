@@ -95,4 +95,5 @@ func main() {
 	classes := output[2].Value().([][]float32)[0]
 	masks := output[3].Value().([][][][]float32)[0]
 
-	// Draw a box around the 
+	// Draw a box around the objects with a probability higher than the threshold
+	
