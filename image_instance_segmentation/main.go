@@ -99,4 +99,5 @@ func main() {
 	curObj := 0
 	for probabilities[curObj] > 0.9 {
 		y1 := float32(img.Bounds().Max.Y) * boxes[curObj][0]
-		x1 := float32(img.Bounds()
+		x1 := float32(img.Bounds().Max.X) * boxes[curObj][1]
+		y2 := float32(img.Bo
