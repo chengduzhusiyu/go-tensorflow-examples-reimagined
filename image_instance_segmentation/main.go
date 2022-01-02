@@ -98,4 +98,5 @@ func main() {
 	// Draw a box around the objects with a probability higher than the threshold
 	curObj := 0
 	for probabilities[curObj] > 0.9 {
-		y1 := float32(img.Bounds().Max.Y) * boxe
+		y1 := float32(img.Bounds().Max.Y) * boxes[curObj][0]
+		x1 := float32(img.Bounds()
