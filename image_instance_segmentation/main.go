@@ -101,4 +101,4 @@ func main() {
 		y1 := float32(img.Bounds().Max.Y) * boxes[curObj][0]
 		x1 := float32(img.Bounds().Max.X) * boxes[curObj][1]
 		y2 := float32(img.Bounds().Max.Y) * boxes[curObj][2]
-		x2 :
+		x2 := float32(img.Bounds().Max.X) * boxes[curObj][3
