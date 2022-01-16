@@ -104,4 +104,6 @@ func main() {
 		x2 := float32(img.Bounds().Max.X) * boxes[curObj][3]
 
 		mask := masks[curObj]
-		color := colornames.Map[colornames.Names[int(classes[curOb
+		color := colornames.Map[colornames.Names[int(classes[curObj])]]
+
+		utils.Rect(img, int(x1), int(y1),
