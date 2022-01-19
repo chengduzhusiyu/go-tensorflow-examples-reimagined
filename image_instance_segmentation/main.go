@@ -107,4 +107,4 @@ func main() {
 		color := colornames.Map[colornames.Names[int(classes[curObj])]]
 
 		utils.Rect(img, int(x1), int(y1), int(x2), int(y2), 4, color)
-		utils.AddLabel
+		utils.AddLabel(img, int(x1), int(y1), int(classes[curObj]), utils.Get
