@@ -108,4 +108,9 @@ func main() {
 
 		utils.Rect(img, int(x1), int(y1), int(x2), int(y2), 4, color)
 		utils.AddLabel(img, int(x1), int(y1), int(classes[curObj]), utils.GetLabel(curObj, probabilities, classes, labels))
-		img = utils.Segment(img, mask, color, x1, y
+		img = utils.Segment(img, mask, color, x1, y1, x2, y2)
+		curObj++
+	}
+
+	// Output JPG file
+	
