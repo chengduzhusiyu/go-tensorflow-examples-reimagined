@@ -107,4 +107,5 @@ func main() {
 		color := colornames.Map[colornames.Names[int(classes[curObj])]]
 
 		utils.Rect(img, int(x1), int(y1), int(x2), int(y2), 4, color)
-		utils.AddLabel(img, int(x1), int(y1), int(classes[curObj]), utils.GetLabel(curObj, probabilities, classes, la
+		utils.AddLabel(img, int(x1), int(y1), int(classes[curObj]), utils.GetLabel(curObj, probabilities, classes, labels))
+		img = utils.Segment(img, mask, color, x1, y
