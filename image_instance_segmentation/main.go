@@ -113,4 +113,5 @@ func main() {
 	}
 
 	// Output JPG file
-	
+	outfile, err := os.Create(*outjpg)
+	if err != ni
