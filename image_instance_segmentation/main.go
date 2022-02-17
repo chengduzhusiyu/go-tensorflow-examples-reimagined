@@ -119,4 +119,8 @@ func main() {
 	}
 	var opt jpeg.Options
 	opt.Quality = 80
-	err = jpeg.Encode(outfile, img, &
+	err = jpeg.Encode(outfile, img, &opt)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
