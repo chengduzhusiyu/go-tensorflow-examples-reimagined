@@ -8,3 +8,52 @@ import (
 	"image/jpeg"
 	"io/ioutil"
 	"log"
+	"os"
+	"path/filepath"
+
+	"github.com/k0kubun/pp"
+
+	utils "github.com/rai-project/tensorflow-go-examples"
+	tf "github.com/tensorflow/tensorflow/tensorflow/go"
+	"golang.org/x/image/colornames"
+)
+
+func main() {
+	// Parse flags
+	modeldir := flag.String("dir", "", "Directory containing trained model files. Assumes model file is called frozen_inference_graph.pb")
+	jpgfile := flag.String("jpg", "lane_control.jpg", "Path of a JPG image to use for input")
+	outjpg := flag.String("out", "output.jpg", "Path of output JPG for displaying labels. Default is output.jpg")
+	labelfile := flag.String("labels", "coco_labels.txt", "Path to file of COCO labels, one per line")
+	flag.Parse()
+	if *modeldir == "" || *jpgfile == "" {
+		flag.Usage()
+		return
+	}
+
+	// Load the labels
+	labels := utils.LoadLabels(*labelfile)
+
+	// Load a frozen graph to use for queries
+	modelpath := filepath.Join(*modeldir, "frozen_inference_graph.pb")
+	model, err := ioutil.ReadFile(modelpath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Construct an in-memory graph from the serialized form.
+	graph := tf.NewGraph()
+	if err := graph.Import(model, ""); err != nil {
+		log.Fatal(err)
+	}
+
+	// Create a session for inference over graph.
+	session, err := tf.NewSession(graph, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer session.Close()
+
+	// DecodeJpeg uses a scalar String-valued tensor as input.
+	tensor, i, err := utils.MakeTensorFromImage(*jpgfile)
+	if err != nil {
+		log.Fatal(err)
