@@ -57,3 +57,53 @@ func main() {
 	tensor, i, err := utils.MakeTensorFromImage(*jpgfile)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	// Print the image tensor
+	// utils.ToPng("/tmp/object_detection.png", utils.TensorData(utils.TensorPtrC(tensor)), i.Bounds())
+
+	// Transform the decoded YCbCr JPG image into RGBA
+	b := i.Bounds()
+	img := image.NewRGBA(b)
+	draw.Draw(img, b, i, b.Min, draw.Src)
+
+	// Input op
+	inputOp := graph.Operation("image_tensor")
+
+	// Output ops
+	o1 := graph.Operation("detection_boxes")
+	o2 := graph.Operation("detection_scores")
+	o3 := graph.Operation("detection_classes")
+	o4 := graph.Operation("num_detections")
+
+	// Execute COCO Graph
+	output, err := session.Run(
+		map[tf.Output]*tf.Tensor{
+			inputOp.Output(0): tensor,
+		},
+		[]tf.Output{
+			o1.Output(0),
+			o2.Output(0),
+			o3.Output(0),
+			o4.Output(0),
+		},
+		nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Take the first in the batched output
+	boxes := output[0].Value().([][][]float32)[0]
+	probabilities := output[1].Value().([][]float32)[0]
+	classes := output[2].Value().([][]float32)[0]
+
+	m := float32(0.0)
+	for i, e := range probabilities {
+		if i == 0 || e > m {
+			m = e
+		}
+	}
+
+	pp.Println(m)
+
+	// Draw a box around the objects with a probability larger than threshold
