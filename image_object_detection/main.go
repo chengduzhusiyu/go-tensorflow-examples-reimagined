@@ -107,3 +107,28 @@ func main() {
 	pp.Println(m)
 
 	// Draw a box around the objects with a probability larger than threshold
+	curObj := 0
+	for probabilities[curObj] > 0.4 {
+		x1 := float32(img.Bounds().Max.X) * boxes[curObj][1]
+		x2 := float32(img.Bounds().Max.X) * boxes[curObj][3]
+		y1 := float32(img.Bounds().Max.Y) * boxes[curObj][0]
+		y2 := float32(img.Bounds().Max.Y) * boxes[curObj][2]
+
+		utils.Rect(img, int(x1), int(y1), int(x2), int(y2), 4, colornames.Map[colornames.Names[int(classes[curObj])]])
+		utils.AddLabel(img, int(x1), int(y1), int(classes[curObj]), utils.GetLabel(curObj, probabilities, classes, labels))
+
+		curObj++
+	}
+
+	// Output JPG file
+	outfile, err := os.Create(*outjpg)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var opt jpeg.Options
+	opt.Quality = 80
+	err = jpeg.Encode(outfile, img, &opt)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
