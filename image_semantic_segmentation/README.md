@@ -2,4 +2,4 @@
 
 The example uses DeepLab [mobilenetv2_coco_voc_trainaug](http://download.tensorflow.org/models/deeplabv3_mnv2_pascal_train_aug_2018_01_29.tar.gz) trained on PASCAL VOC 2012.
 
-Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow
+Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.
