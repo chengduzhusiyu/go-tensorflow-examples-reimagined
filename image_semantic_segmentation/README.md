@@ -6,4 +6,4 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 
 ### The input and output nodes of the model
 
-| Node Nam
+| Node Name            | Input/Output | Shape                     | D
