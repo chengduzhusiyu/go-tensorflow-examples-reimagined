@@ -4,3 +4,6 @@ The example uses DeepLab [mobilenetv2_coco_voc_trainaug](http://download.tensorf
 
 Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md) and [DeepLab: Deep Labelling for Semantic Image Segmentation](https://github.com/tensorflow/models/tree/master/research/deeplab) for more details.
 
+### The input and output nodes of the model
+
+| Node Nam
