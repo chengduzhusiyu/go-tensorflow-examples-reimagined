@@ -8,4 +8,4 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 
 | Node Name            | Input/Output | Shape                     | Data Description                                             |
 | -------------------- | ------------ | ------------------------- | ------------------------------------------------------------ |
-| ImageTensor          | Input        
+| ImageTensor          | Input        | [batch, height, width, 3] | RGB pixel values as uin
