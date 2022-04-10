@@ -8,4 +8,5 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 
 | Node Name            | Input/Output | Shape                     | Data Description                                             |
 | -------------------- | ------------ | ------------------------- | ------------------------------------------------------------ |
-| ImageTensor          | Input        | [batch, height, width, 3] | RGB pixel values as uint8 in a square format (Width,
+| ImageTensor          | Input        | [batch, height, width, 3] | RGB pixel values as uint8 in a square format (Width, Height) |
+| SemanticPredictionss | Output     
