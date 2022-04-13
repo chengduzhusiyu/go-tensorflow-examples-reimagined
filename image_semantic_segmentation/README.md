@@ -9,4 +9,8 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 | Node Name            | Input/Output | Shape                     | Data Description                                             |
 | -------------------- | ------------ | ------------------------- | ------------------------------------------------------------ |
 | ImageTensor          | Input        | [batch, height, width, 3] | RGB pixel values as uint8 in a square format (Width, Height) |
-| SemanticPredictionss | Output       | [batch, outeight, width]  | Array of output segments                                  
+| SemanticPredictionss | Output       | [batch, outeight, width]  | Array of output segments                                     |
+
+### Usage
+
+`go run main.go -dir=<model 
