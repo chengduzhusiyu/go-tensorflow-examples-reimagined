@@ -13,4 +13,4 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 
 ### Usage
 
-`go run main.go -dir=<model 
+`go run main.go -dir=<model folder> -jpg=<input.jpg> [-out=<output.jpg>] [-la
