@@ -17,4 +17,5 @@ Refer to [TensorFlow DeepLab Model Zoo](https://github.com/tensorflow/models/blo
 
 ### References
 
-- [DeepLab Demo](https://github.com/tensorflow/models/blob/ma
+- [DeepLab Demo](https://github.com/tensorflow/models/blob/master/research/deeplab/deeplab_demo.ipynb
+- [](https://github.com
