@@ -111,3 +111,17 @@ func main() {
 	}
 
 	imgResized := imaging.Resize(img, targetWidth, targetHeight, imaging.Linear)
+	imgOut := imaging.Overlay(imgResized, imgSeg, image.ZP, 0.7)
+
+	// Output JPG file
+	outfile, err := os.Create(*outjpg)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var opt jpeg.Options
+	opt.Quality = 80
+	err = jpeg.Encode(outfile, imgOut, &opt)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
