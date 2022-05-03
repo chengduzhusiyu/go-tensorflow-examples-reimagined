@@ -95,3 +95,55 @@ func ToPng(filePath string, imgByte []byte, bounds image.Rectangle) {
 
 	out, _ := os.Create(filePath)
 	defer out.Close()
+
+	err := png.Encode(out, img.ToRGBAImage())
+	if err != nil {
+		log.Println(err)
+	}
+}
+
+// LABEL UTILITY FUNCTIONS
+
+func LoadLabels(labelsFile string) []string {
+	var labels []string
+	file, err := os.Open(labelsFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		labels = append(labels, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		log.Printf("ERROR: failed to read %s: %v", labelsFile, err)
+	}
+
+	return labels
+}
+
+func GetLabel(idx int, probabilities []float32, classes []float32, labels []string) string {
+	index := int(classes[idx])
+	label := fmt.Sprintf("%s (%2.0f%%)", labels[index], probabilities[idx]*100.0)
+
+	return label
+}
+
+func AddLabel(img *image.RGBA, x, y, class int, label string) {
+	col := colornames.Map[colornames.Names[class]]
+	point := fixed.Point26_6{fixed.Int26_6(x * 64), fixed.Int26_6(y * 64)}
+
+	d := &font.Drawer{
+		Dst:  img,
+		Src:  image.NewUniform(colornames.Black),
+		Face: basicfont.Face7x13,
+		Dot:  point,
+	}
+
+	Rect(img, x, y-13, (x + len(label)*7), y-6, 7, col)
+
+	d.DrawString(label)
+}
+
+// TENSOR UTILITY FUNCTIONS
