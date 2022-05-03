@@ -55,3 +55,43 @@ func Rect(img *image.RGBA, x1, y1, x2, y2, width int, col color.Color) {
 		VLine(img, x2+i, y1, y2, col)
 	}
 }
+
+// Segment draws a rectangle utilizing HLine() and VLine()
+func Segment(img *image.RGBA, mask [][]float32, col color.Color, x1, y1, x2, y2 float32) *image.RGBA {
+	height := len(mask)
+	width := len(mask[0])
+	seg := image.NewRGBA(image.Rect(0, 0, width, height))
+
+	for ii := 0; ii < height; ii++ {
+		for jj := 0; jj < width; jj++ {
+			if mask[ii][jj] > 0.2 {
+				seg.Set(jj, ii, col)
+			}
+		}
+	}
+
+	segScaled := imaging.Resize(seg, int(x2)-int(x1), int(y2)-int(y1), imaging.NearestNeighbor)
+
+	out, _ := os.Create("/tmp/test.png")
+	defer out.Close()
+	err := png.Encode(out, segScaled)
+	if err != nil {
+		log.Println(err)
+	}
+
+	overlay := imaging.Overlay(img, segScaled, image.Pt(int(x1), int(y1)), 0.5)
+	rgba := &image.RGBA{
+		Pix:    overlay.Pix,
+		Stride: overlay.Stride,
+		Rect:   overlay.Rect,
+	}
+
+	return rgba
+}
+
+func ToPng(filePath string, imgByte []byte, bounds image.Rectangle) {
+	img := imagetypes.NewRGBImage(bounds)
+	copy(img.Pix, imgByte)
+
+	out, _ := os.Create(filePath)
+	defer out.Close()
