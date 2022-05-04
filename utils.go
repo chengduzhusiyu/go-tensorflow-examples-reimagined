@@ -147,3 +147,52 @@ func AddLabel(img *image.RGBA, x, y, class int, label string) {
 }
 
 // TENSOR UTILITY FUNCTIONS
+
+func DecodeJpegGraph() (graph *tf.Graph, input, output tf.Output, err error) {
+	s := op.NewScope()
+	input = op.Placeholder(s, tf.String)
+	dctMethod := op.DecodeJpegDctMethod("INTEGER_ACCURATE")
+	output =
+		op.ExpandDims(s,
+			op.DecodeJpeg(s, input,
+				op.DecodeJpegChannels(3), dctMethod),
+			op.Const(s.SubScope("make_batch"), int32(0)))
+	graph, err = s.Finalize()
+	return graph, input, output, err
+}
+
+func DecodeJpegNormalizeGraph(height int32, width int32) (graph *tf.Graph, input, output tf.Output, err error) {
+	s := op.NewScope()
+	input = op.Placeholder(s, tf.String)
+	dctMethod := op.DecodeJpegDctMethod("INTEGER_ACCURATE")
+	output =
+		op.Cast(s,
+			op.ResizeBilinear(s,
+				op.ExpandDims(s,
+					op.DecodeJpeg(s, input, op.DecodeJpegChannels(3), dctMethod),
+					op.Const(s.SubScope("make_batch"), int32(0))),
+				op.Const(s.SubScope("size"), []int32{height, width})),
+			tf.Uint8)
+	graph, err = s.Finalize()
+	return graph, input, output, err
+}
+
+func MakeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
+	b, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	r := bytes.NewReader(b)
+	img, _, err := image.Decode(r)
+
+	if err != nil {
+		return nil, nil, err
+	}
+
+	// DecodeJpeg uses a scalar String-valued tensor as input.
+	tensor, err := tf.NewTensor(string(b))
+	if err != nil {
+		return nil, nil, err
+	}
+	// Creates a tensorflow graph to decode the jpeg image
