@@ -196,3 +196,49 @@ func MakeTensorFromImage(filename string) (*tf.Tensor, image.Image, error) {
 		return nil, nil, err
 	}
 	// Creates a tensorflow graph to decode the jpeg image
+	graph, input, output, err := DecodeJpegGraph()
+	if err != nil {
+		return nil, nil, err
+	}
+	// Execute that graph to decode this one image
+	session, err := tf.NewSession(graph, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+	defer session.Close()
+	normalized, err := session.Run(
+		map[tf.Output]*tf.Tensor{input: tensor},
+		[]tf.Output{output},
+		nil)
+	if err != nil {
+		return nil, nil, err
+	}
+	return normalized[0], img, nil
+}
+
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+func MakeTensorFromResizedImage(filename string, inputSize int32) (*tf.Tensor, image.Image, int, int, error) {
+	b, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, nil, 0, 0, err
+	}
+
+	r := bytes.NewReader(b)
+	img, _, err := image.Decode(r)
+	width := img.Bounds().Max.X
+	height := img.Bounds().Max.Y
+	resizeRatio := float32(inputSize) / float32(max(width, height))
+	targetWidth := int32(resizeRatio * float32(width))
+	targetHeight := int32(resizeRatio * float32(height))
+
+	// DecodeJpeg uses a scalar String-valued tensor as input.
+	tensor, err := tf.NewTensor(string(b))
+	if err != nil {
+		return nil, nil, 0, 0, err
+	}
