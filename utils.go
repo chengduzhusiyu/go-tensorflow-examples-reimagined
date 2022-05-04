@@ -242,3 +242,47 @@ func MakeTensorFromResizedImage(filename string, inputSize int32) (*tf.Tensor, i
 	if err != nil {
 		return nil, nil, 0, 0, err
 	}
+
+	// Creates a tensorflow graph to decode the jpeg image
+	graph, input, output, err := DecodeJpegNormalizeGraph(targetHeight, targetWidth)
+	if err != nil {
+		return nil, nil, 0, 0, err
+	}
+	// Execute that graph to decode this one image
+	session, err := tf.NewSession(graph, nil)
+	if err != nil {
+		return nil, nil, 0, 0, err
+	}
+	defer session.Close()
+	normalized, err := session.Run(
+		map[tf.Output]*tf.Tensor{input: tensor},
+		[]tf.Output{output},
+		nil)
+	if err != nil {
+		return nil, nil, 0, 0, err
+	}
+	return normalized[0], img, int(targetWidth), int(targetHeight), nil
+}
+
+func ReshapeTensorFloats(data [][]float32, shape []int64) (*tf.Tensor, error) {
+	N, H, W, C := shape[0], shape[1], shape[2], shape[3]
+	tensor := make([][][][]float32, N)
+	for n := int64(0); n < N; n++ {
+		ndata := data[n]
+		tn := make([][][]float32, H)
+		for h := int64(0); h < H; h++ {
+			th := make([][]float32, W)
+			for w := int64(0); w < W; w++ {
+				offset := C * (W*h + w)
+				tw := ndata[offset : offset+C]
+				th[w] = tw
+			}
+			tn[h] = th
+		}
+		tensor[n] = tn
+	}
+	return tf.NewTensor(tensor)
+}
+
+func TensorPtrC(t *tf.Tensor) *C.TF_Tensor {
+	fld := reflect.Indirect(reflect.ValueOf(t)).FieldByName("c")
