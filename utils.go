@@ -328,3 +328,20 @@ func NormalizeImageHWC(in *image.NRGBA, mean []float32, scale float32) ([]float3
 // SORTING UTILITY FUNCTIONS
 
 type Predictions struct {
+	Indexes       []int
+	Probabilities []float32
+}
+
+// Implement sort.Interface Len
+func (s Predictions) Len() int { return len(s.Indexes) }
+
+// Implement sort.Interface Less
+func (s Predictions) Less(i, j int) bool { return s.Probabilities[i] > s.Probabilities[j] }
+
+// Implment sort.Interface Swap
+func (s Predictions) Swap(i, j int) {
+	// swap value
+	s.Probabilities[i], s.Probabilities[j] = s.Probabilities[j], s.Probabilities[i]
+	// swap index
+	s.Indexes[i], s.Indexes[j] = s.Indexes[j], s.Indexes[i]
+}
