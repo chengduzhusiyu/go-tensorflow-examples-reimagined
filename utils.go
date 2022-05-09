@@ -286,3 +286,45 @@ func ReshapeTensorFloats(data [][]float32, shape []int64) (*tf.Tensor, error) {
 
 func TensorPtrC(t *tf.Tensor) *C.TF_Tensor {
 	fld := reflect.Indirect(reflect.ValueOf(t)).FieldByName("c")
+	if fld.CanInterface() {
+		return fld.Interface().(*C.TF_Tensor)
+	}
+
+	ptr := unsafe.Pointer(fld.UnsafeAddr())
+	e := (**C.TF_Tensor)(ptr)
+	return *e
+}
+
+func TensorData(c *C.TF_Tensor) []byte {
+	// See: https://github.com/golang/go/wiki/cgo#turning-c-arrays-into-go-slices
+	cbytes := C.TF_TensorData(c)
+	if cbytes == nil {
+		return nil
+	}
+	length := int(C.TF_TensorByteSize(c))
+	slice := (*[1 << 30]byte)(unsafe.Pointer(cbytes))[:length:length]
+	return slice
+}
+
+// IMAGE PREPROCESSING UTILITY FUNCTIONS
+
+func NormalizeImageHWC(in *image.NRGBA, mean []float32, scale float32) ([]float32, error) {
+	height := in.Bounds().Dy()
+	width := in.Bounds().Dx()
+	out := make([]float32, 3*height*width)
+	for y := 0; y < height; y++ {
+		for x := 0; x < width; x++ {
+			outOffset := 3 * (y*width + x)
+			nrgba := in.NRGBAAt(x, y)
+			r, g, b := nrgba.R, nrgba.G, nrgba.B
+			out[outOffset+0] = (float32(r) - mean[0]) / scale
+			out[outOffset+1] = (float32(g) - mean[1]) / scale
+			out[outOffset+2] = (float32(b) - mean[2]) / scale
+		}
+	}
+	return out, nil
+}
+
+// SORTING UTILITY FUNCTIONS
+
+type Predictions struct {
