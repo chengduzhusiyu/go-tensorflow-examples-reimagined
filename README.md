@@ -4,4 +4,6 @@ This repository is a collection of comprehensive examples for model inference ut
 
 ## Models
 
-- [Image Classification](image_classification) - Classifies the dominant object c
+- [Image Classification](image_classification) - Classifies the dominant object category within an image.
+
+- [Image Object D
