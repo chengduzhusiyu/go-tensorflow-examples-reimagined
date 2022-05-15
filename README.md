@@ -6,4 +6,6 @@ This repository is a collection of comprehensive examples for model inference ut
 
 - [Image Classification](image_classification) - Classifies the dominant object category within an image.
 
-- [Image Object Detection](image_object_detection) - Identifies object categories and locates them on the image using
+- [Image Object Detection](image_object_detection) - Identifies object categories and locates them on the image using bounding boxes.
+
+- [Image Instance Segmentation](image_inst
