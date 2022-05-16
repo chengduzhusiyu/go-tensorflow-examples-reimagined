@@ -10,4 +10,4 @@ This repository is a collection of comprehensive examples for model inference ut
 
 - [Image Instance Segmentation](image_instance_segmentation) - Identifies each object instance of each pixel for all known objects in the image with instance-aware labels.
 
-- [Image Sema
+- [Image Semantic Segmentation](image_semantic_segmentation) - I
