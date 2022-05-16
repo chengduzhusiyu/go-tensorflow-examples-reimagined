@@ -8,4 +8,4 @@ This repository is a collection of comprehensive examples for model inference ut
 
 - [Image Object Detection](image_object_detection) - Identifies object categories and locates them on the image using bounding boxes.
 
-- [Image Instance Segmentation](image_instance_segmentation) - Identifies each object instance o
+- [Image Instance Segmentation](image_instance_segmentation) - Identifies each object instance of each pixel for all known objects in the image 
