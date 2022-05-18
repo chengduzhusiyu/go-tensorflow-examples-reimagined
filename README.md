@@ -12,4 +12,6 @@ This repository is a collection of comprehensive examples for model inference ut
 
 - [Image Semantic Segmentation](image_semantic_segmentation) - Identifies the object category of each pixel for all known objects in the image. The labels here are class-aware.
 
-- [Image Enhanceme
+- [Image Enhancement](image_semantic_segmentation)
+
+## TensorFlow Go API
