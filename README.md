@@ -14,4 +14,6 @@ This repository is a collection of comprehensive examples for model inference ut
 
 - [Image Enhancement](image_semantic_segmentation)
 
-## TensorFlow Go API
+## TensorFlow Go API installation
+
+Check out the instructions for instal
