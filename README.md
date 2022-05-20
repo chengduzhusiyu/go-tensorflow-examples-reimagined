@@ -18,4 +18,4 @@ This repository is a collection of comprehensive examples for model inference ut
 
 Check out the instructions for installing Go TensorFlow [here](https://www.tensorflow.org/install/lang_go).
 
-## For inspecting pre-t
+## For inspecting pre-trained frozen graphs for input and output tensor n
