@@ -16,4 +16,6 @@ This repository is a collection of comprehensive examples for model inference ut
 
 ## TensorFlow Go API installation
 
-Check out the instructions for installing Go TensorFlow [here](https://www.tensorflow.org/i
+Check out the instructions for installing Go TensorFlow [here](https://www.tensorflow.org/install/lang_go).
+
+## For inspecting pre-t
