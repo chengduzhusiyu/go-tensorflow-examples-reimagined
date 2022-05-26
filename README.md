@@ -23,4 +23,8 @@ Check out the instructions for installing Go TensorFlow [here](https://www.tenso
 Useful tools:
 
 - [Netron](https://github.com/lutzroeder/netron)
-- [Guidelines](https://medium.com/@daj/how-to-inspect-a-pre-traine
+- [Guidelines](https://medium.com/@daj/how-to-inspect-a-pre-trained-tensorflow-model-5fd2ee79ced0)
+
+## References
+
+For addi
