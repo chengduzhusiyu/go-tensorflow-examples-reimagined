@@ -27,4 +27,6 @@ Useful tools:
 
 ## References
 
-For addi
+For additional support and information, visit these resources:
+
+- 
