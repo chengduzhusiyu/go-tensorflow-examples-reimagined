@@ -29,4 +29,4 @@ Useful tools:
 
 For additional support and information, visit these resources:
 
-- 
+- [TensorFlow Go package docs](https://godoc.org/github.co
