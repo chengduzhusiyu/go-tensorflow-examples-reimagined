@@ -30,4 +30,4 @@ Useful tools:
 For additional support and information, visit these resources:
 
 - [TensorFlow Go package docs](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
-- TensorFlow [mod
+- TensorFlow [model repository](https://github.com/tensorflow/models)
